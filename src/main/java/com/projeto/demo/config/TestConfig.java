@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.projeto.demo.entities.Order;
 import com.projeto.demo.entities.User;
+import com.projeto.demo.entities.enums.OrderStatus;
 import com.projeto.demo.repositories.OrderRepository;
 import com.projeto.demo.repositories.UserRepository;
 
@@ -32,16 +33,16 @@ public class TestConfig implements CommandLineRunner{
 		User u4 = new User(null, "Julia Costa", "julia@gmail.com", "955555555", "ghijkl");
 		User u5 = new User(null, "Pedro Almeida", "pedro@gmail.com", "944444444", "mnopqr");
 		
-		Order o1 = new Order(null, Instant.parse("2024-01-10T08:00:00Z"), u1);
-		Order o2 = new Order(null, Instant.parse("2024-01-15T14:30:00Z"), u2);
-		Order o3 = new Order(null, Instant.parse("2024-02-01T11:00:00Z"), u3);
-		Order o4 = new Order(null, Instant.parse("2024-02-10T09:45:00Z"), u4);
-		Order o5 = new Order(null, Instant.parse("2024-03-05T16:20:00Z"), u5);
-		Order o6 = new Order(null, Instant.parse("2024-03-15T13:30:00Z"), u1);
-		Order o7 = new Order(null, Instant.parse("2024-04-01T10:00:00Z"), u2);
-		Order o8 = new Order(null, Instant.parse("2024-04-10T15:15:00Z"), u3);
-		Order o9 = new Order(null, Instant.parse("2024-05-01T08:30:00Z"), u4);
-		Order o10 = new Order(null, Instant.parse("2024-05-15T14:00:00Z"), u5);
+		Order o1 = new Order(null, Instant.parse("2024-01-10T08:00:00Z"), OrderStatus.CANCELED, u1);
+		Order o2 = new Order(null, Instant.parse("2024-01-15T14:30:00Z"), OrderStatus.WAITING_PAYMENT,u2);
+		Order o3 = new Order(null, Instant.parse("2024-02-01T11:00:00Z"), OrderStatus.PAID,u3);
+		Order o4 = new Order(null, Instant.parse("2024-02-10T09:45:00Z"), OrderStatus.SHIPPED,u4);
+		Order o5 = new Order(null, Instant.parse("2024-03-05T16:20:00Z"), OrderStatus.SHIPPED, u5);
+		Order o6 = new Order(null, Instant.parse("2024-03-15T13:30:00Z"), OrderStatus.DELIVERED, u1);
+		Order o7 = new Order(null, Instant.parse("2024-04-01T10:00:00Z"), OrderStatus.CANCELED, u2);
+		Order o8 = new Order(null, Instant.parse("2024-04-10T15:15:00Z"), OrderStatus.DELIVERED, u3);
+		Order o9 = new Order(null, Instant.parse("2024-05-01T08:30:00Z"), OrderStatus.PAID, u4);
+		Order o10 = new Order(null, Instant.parse("2024-05-15T14:00:00Z"), OrderStatus.WAITING_PAYMENT, u5);
 
 		
 		
